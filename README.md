@@ -21,6 +21,22 @@ export class ApiConfiguration {
 npm install
 ng serve
 ```
+## 🗂️ Configuración de la Base de Datos
+Crea la base de datos local: `EventManagementDB`
+```comando
+Add-Migration InitialCreate
+```
+```comando
+Update-Database
+```
+1. Dentro de app existe una carpeta 🗂️ llamada resources donde encontraras el único script que deberás correr luego de haber hecho las migraciones desde el back
+2. **Comandos de Migración**:
+   - Usamos `Add-Migration` y `Update-Database` en lugar de `dotnet ef`.
+   - Especificamos que estos comandos deben ejecutarse desde la **Consola de Administración de Paquetes** en Visual Studio.
+
+3. **Notas Específicas**:
+   - Añadimos instrucciones para verificar que el servidor SQL está en ejecución.
+   - Indicamos cómo manejar bases de datos existentes.
 ## 📂 Estructura del Proyecto
 ### Frontend: Angular
  `src/app`: Contiene los componentes, servicios y módulos de Angular.
