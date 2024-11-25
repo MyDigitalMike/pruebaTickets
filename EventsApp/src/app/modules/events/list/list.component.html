@@ -1,0 +1,42 @@
+<div class="container-lg mx-auto my-4">
+  @if(this.eventList == []){
+  <div class="alert alert-warning" role="alert">
+    {{errorService}}
+  </div>
+  }
+  @else {
+  @for(events of eventList; track events){
+  <div class="card mb-2">
+    <div class="card-body">
+      <h1>Nombre del evento: {{events.name}}</h1>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Descripción del evento:</p>
+        <p>{{events.description}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Fecha y Hora:</p>
+        <p>{{events.eventDate}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Ubicación:</p>
+        <p>{{events.location}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row justify-content-between gap-2">
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <p class="fw-semibold">Capacidad máxima de asistentes permitida:</p>
+          <p>{{events.maxCapacity}}</p>
+        </div>
+        <div class="d-flex flex-column flex-md-row gap-2">
+          <p class="fw-semibold">Asistentes:</p>
+          <p>{{events.registeredCount}}</p>
+        </div>
+      </span>
+      <span class="d-flex flex-column flex-md-row flex-row gap-2">
+        <button class="btn btn-outline-info" (click)="suscribeToEvents(events.id!)">Unirme <i
+            class="fa fa-plus"></i></button>
+      </span>
+    </div>
+  </div>
+  }
+  }
+</div>

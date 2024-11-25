@@ -1,0 +1,41 @@
+<div class="container-lg mx-auto my-4">
+
+  <div class="d-flex justify-content-end aling-items-center m-2">
+    <button type="button" class="btn btn-outline-success" (click)="openModalCrearEvento()">Crear Evento <i
+        class="fa fa-plus"></i></button>
+  </div>
+  @if(this.eventList == []){
+  <div class="alert alert-warning" role="alert">
+    {{errorService}}
+  </div>
+  }
+  @else {
+    @for(events of eventList; track events){
+  <div class="card mb-2">
+    <div class="card-body">
+      <h1>Nombre del evento: {{events.name}}</h1>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Descripción del evento:</p>
+        <p>{{events.description}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Fecha y Hora:</p>
+        <p>{{events.eventDate}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Ubicación:</p>
+        <p>{{events.location}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row gap-2">
+        <p class="fw-semibold">Capacidad máxima de asistentes permitida:</p>
+        <p>{{events.maxCapacity}}</p>
+      </span>
+      <span class="d-flex flex-column flex-md-row flex-row gap-2">
+        <button type="button" class="btn btn-outline-warning" (click)="openModalEditarEvento(events.id!)">Editar Evento <i class="fa fa-warning"></i></button>
+        <button class="btn btn-outline-danger" (click)="deleteEvent(events.id!)">Eliminar Evento <i class="fa fa-trash"></i></button>
+      </span>
+    </div>
+  </div>
+}
+  }
+</div>
